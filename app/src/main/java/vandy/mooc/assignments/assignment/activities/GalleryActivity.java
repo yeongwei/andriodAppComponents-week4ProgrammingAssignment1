@@ -155,7 +155,7 @@ public class GalleryActivity
         // to display the the string R.string.input_url_list_is_empty
         //
         // Otherwise check if each list entry is valid using the
-        // FileUtils.isValidUrl() helper and if any URL is not valid
+        // UriUtils.isValidUrl() helper and if any URL is not valid
         // return false.
         //
         // Return true if all the URLs are valid.
