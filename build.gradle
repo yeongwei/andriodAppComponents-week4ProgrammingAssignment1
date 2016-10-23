@@ -49,3 +49,11 @@ task _projectZip(type:Zip) {
 
     destinationDir file('zip')
 }
+
+task _answerZip(type:Zip) {
+    description = 'Makes a single zip file containing all of the required files that you will submit for grading.'
+    from projectDir
+    include 'app/src/main/java/vandy/mooc/assignments/assignment/**'
+    baseName = 'answer-files'
+    destinationDir file('zip')
+}
