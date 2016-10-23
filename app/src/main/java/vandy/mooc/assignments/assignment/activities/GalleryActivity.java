@@ -71,16 +71,17 @@ public class GalleryActivity
     public static Intent makeStartIntent(
             Context context,
             ArrayList<Uri> inputUrls) {
-        // TODO (A1+): Create a new intent for starting this activity
+        // TODO (A1,A2,A3): Create a new intent for starting this activity
         // using the passed context along with the class identifier
         // for this class.
         
 
-        // TODO (A1+): Put the received list of input URLs as an intent
-        // extra using the predefined INTENT_EXTRA_URLS extra name.
+        // TODO (A1,A2,A3): Put the received list of input URLs as an intent
+        // use putParcelableArrayListExtra(String, ArrayList<Uri>) on the intent
+        // using the predefined INTENT_EXTRA_URLS extra name.
         
 
-        // TODO (A1+): Return the intent.
+        // TODO (A1,A2,A3): Return the intent.
         
     }
 
