@@ -8,6 +8,7 @@ import java.util.ArrayList;
 
 import vandy.mooc.assignments.R;
 import vandy.mooc.assignments.assignment.activities.GalleryActivity;
+import vandy.mooc.assignments.framework.utils.AssignmentUtils;
 
 import static android.support.test.espresso.Espresso.onView;
 import static android.support.test.espresso.action.ViewActions.clearText;
@@ -71,15 +72,14 @@ public class ApplicationTestBase extends EspressoTestBase {
      * assignment (from the @Before handler).
      */
     protected void setAssignmentRunner(int assignment) {
-        // TODO: MIKE See if need this now
-//        AssignmentUtils.setAssignment(
-//                InstrumentationRegistry.getTargetContext(), assignment);
-//
-//        int result = AssignmentUtils.getAssignment(
-//                InstrumentationRegistry.getTargetContext());
-//
-//        assertEquals("!!!SEVERE ERROR!!! Unable to set Assignment Runner " +
-//                "to run Assignment " + assignment, assignment, result);
+        AssignmentUtils.setAssignment(
+                InstrumentationRegistry.getTargetContext(), assignment);
+
+        int result = AssignmentUtils.getAssignment(
+                InstrumentationRegistry.getTargetContext());
+
+        assertEquals("!!!SEVERE ERROR!!! Unable to set Assignment Runner " +
+                "to run Assignment " + assignment, assignment, result);
 
         Log.i(TAG, "=========== RUNNING ASSIGNMENT "
                 + assignment + " TESTS ===========");
@@ -92,22 +92,6 @@ public class ApplicationTestBase extends EspressoTestBase {
      * try/catch blocks to quietly handle mismatched views.
      */
     protected void clearAllCachedDataAndViews() {
-//        try {
-//            // Clear the EditText view.
-//            onView(withId(R.id.input_url_edit_text))
-//                    .perform(clearText());
-//        } catch (Exception e) {
-//            // We don't care if this fails.
-//        }
-//
-//        try {
-//            // Clear the DownloadActivities text view.
-//            onView(withId(R.id.output_url_text_view))
-//                    .perform(clearText());
-//        } catch (Exception e) {
-//            // We don't care if this fails.
-//        }
-
         try {
             // Clear the ImageView view (may not exist for some
             // assignments).

@@ -57,26 +57,6 @@ public class AssignmentTests extends ApplicationTestBase {
     private static final int TIMEOUT = 0;
 
     /**
-     * MainActivity test rule.
-     */
-    @Rule
-    public ActivityTestRule mMainActivityRule =
-            new ActivityTestRule<>(
-                    MainActivity.class,
-                    true,
-                    false);
-
-    /**
-     * DownloadActivity test rule.
-     */
-    @Rule
-    public ActivityTestRule mDownloadActivityRule =
-            new ActivityTestRule<>(
-                    GalleryActivity.class,
-                    true,
-                    false);
-
-    /**
      * Force the assignment to run code specific to this test for this
      * assignment which is defined in the ASSIGNMENT field.
      */
@@ -102,15 +82,6 @@ public class AssignmentTests extends ApplicationTestBase {
                     MainActivity.class,
                     true,
                     true);
-
-
-    @Rule
-    public ActivityTestRule mGallaryActivityRule =
-            new ActivityTestRule<>(
-                    GalleryActivity.class,
-                    true,
-                    true);
-
 
     /**
      * Full application test that starts the application and attempts to

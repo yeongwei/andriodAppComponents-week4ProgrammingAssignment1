@@ -36,7 +36,7 @@ public final class AssignmentUtils {
      * the assignment runner will only allow the specified ASSIGNMENT number
      * to be run.
      */
-    private static final int ASSIGNMENT = 4;
+    private static final int ASSIGNMENT = 3;
     /**
      * Preference key for looking up assignment version.
      */
