@@ -15,7 +15,7 @@ import vandy.mooc.assignments.framework.downloader.HttpDownloader;
  * This class provides a number of helper methods that can be called during the
  * lifecycle stages of an image download operation.
  */
-public abstract class ImageDownloader extends AbstractDownloader<Bitmap> {
+abstract class ImageDownloader extends AbstractDownloader<Bitmap> {
     /**
      * Calls the HttpDownloader helper method to download the request's URL data
      * source. The downloaded image file is then converted into a bitmap which
@@ -34,7 +34,7 @@ public abstract class ImageDownloader extends AbstractDownloader<Bitmap> {
      * Forwards bitmap to super class method to route to the application UI.
      * This method can only be called from the main thread.
      *
-     * @param bitmap  The downloaded image as a decoded bitmap.
+     * @param bitmap The downloaded image as a decoded bitmap.
      */
     @MainThread
     protected void postResult(Bitmap bitmap) {

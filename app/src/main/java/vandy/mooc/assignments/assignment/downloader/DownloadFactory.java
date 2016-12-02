@@ -27,7 +27,7 @@ public final class DownloadFactory {
      * @param policy The implementation policy to return.
      * @return An new instance of the specified downloader policy.
      */
-    @SuppressWarnings("unchecked")
+    @SuppressWarnings({"unchecked", "UnusedParameters"})
     public static Downloader getDownloader(
             DownloadPolicy policy,
             Context context,

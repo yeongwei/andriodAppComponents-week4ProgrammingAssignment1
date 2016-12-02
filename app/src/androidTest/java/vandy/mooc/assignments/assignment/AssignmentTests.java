@@ -1,13 +1,10 @@
 package vandy.mooc.assignments.assignment;
 
-import android.app.Activity;
-import android.content.Intent;
 import android.os.SystemClock;
 import android.support.test.InstrumentationRegistry;
 import android.support.test.espresso.NoMatchingViewException;
 import android.support.test.rule.ActivityTestRule;
 import android.support.test.runner.AndroidJUnit4;
-import android.test.suitebuilder.annotation.MediumTest;
 
 import org.junit.Before;
 import org.junit.Rule;
@@ -16,7 +13,6 @@ import org.junit.runner.RunWith;
 
 import io.magnum.autograder.junit.Rubric;
 import vandy.mooc.assignments.R;
-import vandy.mooc.assignments.assignment.activities.GalleryActivity;
 import vandy.mooc.assignments.assignment.activities.MainActivity;
 import vandy.mooc.assignments.common.ApplicationTestBase;
 
@@ -38,15 +34,10 @@ import static android.support.test.espresso.matcher.ViewMatchers.withText;
  * NOTE: These tests DO NOT require an internet connection.
  */
 @RunWith(AndroidJUnit4.class)
-@MediumTest
 public class AssignmentTests extends ApplicationTestBase {
-    /**
-     * Debug logging tag.
-     */
-    private static final String TAG = "AssignmentTests";
 
     /**
-     * Sets the runner to test only assignment 1 code.
+     * Sets the runner to test only assignment 3 code.
      */
     private static final int ASSIGNMENT = 3;
 
@@ -54,7 +45,7 @@ public class AssignmentTests extends ApplicationTestBase {
      * Maximum time allowed for each test. Setting this value to
      * removes time limits.
      */
-    private static final int TIMEOUT = 0;
+    private static final int TIMEOUT = 20000;
 
     /**
      * Force the assignment to run code specific to this test for this
@@ -64,14 +55,6 @@ public class AssignmentTests extends ApplicationTestBase {
     public void setup() {
         setAssignmentRunner(ASSIGNMENT);
     }
-
-    /**
-     * Broadcast intent sent by DownloadActivity and received by mock
-     * broadcast receiver.
-     */
-    private Intent mBroadcastIntent = null;
-
-
 
     /**
      * Activity test rule.
@@ -90,17 +73,15 @@ public class AssignmentTests extends ApplicationTestBase {
      * NOTE: THIS TEST REQUIRES AN ACTIVE INTERNET CONNECTION.
      */
     @Rubric(
-            value = "fullAppDownloadAMissingUrlResourceTest",
+            value = "AssignmentTest",
             goal = "The goal of this evaluation is to test " +
-                    "if the application responds with the correct Toast when " +
-                    "the user attempts to download a missing URL resource",
+                    "if the application can complete all of the required steps" +
+                    "automatically for quick/easy peer-evaluation.",
             points = 1.0,
-            reference = "This Test fails when: DownloadActivity fail to show " +
-                    "the expected Toast message when user attempts to " +
-                    "download a malformed image URL."
+            reference = ""
     )
     @Test(timeout = TIMEOUT)
-    public void MyTestTest() {
+    public void AssignmentTest() {
 
 
         // Ensure that permissions are acquired.
@@ -145,20 +126,19 @@ public class AssignmentTests extends ApplicationTestBase {
          * It only throws an error if the last check fails. This cuts down on clock-time needed
          * for test if emulator/internet are of sufficient speed.
          */
-        for (int i = 0 ; i < 5 ; i=i+2){
+        for (int i = 0; i < 5; i = i + 2) {
             // Sleep 2 seconds to between attempts.
             SystemClock.sleep(2000);
-            if (i < 4){
+            if (i < 4) {
                 // first 4 times check URLs but don't fail if they aren't yet downloaded.
                 try {
-                    if (checkDefaultURLs()){
+                    if (checkDefaultURLs()) {
                         break;
                     }
-                }catch (Exception Ex) {
+                } catch (Exception Ex) {
                     // Is alright if this happens first 4 times
                 }
-            }else
-            {
+            } else {
                 // Last time check URLs and fail if they aren't yet downloaded.
                 checkDefaultURLs();
             }
@@ -180,9 +160,10 @@ public class AssignmentTests extends ApplicationTestBase {
 
     /**
      * Helper method to check to see if all the default URLs are present in the GallaryActivity.
+     *
      * @return true if tests didn't fail.
      */
-    public static boolean checkDefaultURLs(){
+    public static boolean checkDefaultURLs() {
         for (String urlToCheck :
                 defaultURLs) {
             onView(withId(R.id.recycler_view_fragment))

@@ -16,8 +16,6 @@ import vandy.mooc.assignments.framework.application.activities.MainActivityBase;
 import vandy.mooc.assignments.framework.utils.ViewUtils;
 
 /**
- * todo: still more do comment here...
- * <p/>
  * This is the main activity class for the application and will be created and
  * be displayed when the application is first started. It extends the base class
  * MainActivityBase which supports add and download FABs and a fragment that
@@ -76,9 +74,10 @@ public class MainActivity extends MainActivityBase {
         // this activity.
         super.onCreate(savedInstanceState);
 
-        // TODO (A3): Call local helper method to setup a broadcast receiver
-        // that will receive and display a list of local image URLs.
-        
+        // Call local helper method to setup a broadcast receiver
+        // that will receive and display a list  of local image URLs.
+        // TODO -- you fill in here.
+
     }
 
     /**
@@ -86,11 +85,13 @@ public class MainActivity extends MainActivityBase {
      */
     @Override
     protected void onDestroy() {
-        // TODO (A3): Unregister the broadcast receiver.
-       
+        // Unregister the broadcast receiver.
+        // TODO -- you fill in here.
+
 
         // Always call super method.
-        super.onDestroy();
+        // TODO -- you fill in here.
+
     }
 
 
@@ -101,8 +102,9 @@ public class MainActivity extends MainActivityBase {
      */
     @Override
     protected void startDownload(ArrayList<Uri> urls) {
-        // TODO (A1, A3): Start the download operation (Activity)
-        
+        // Start the Gallery Activity with the passed in Uri(s)
+        // TODO -- you fill in here.
+
     }
 
     /**
@@ -113,8 +115,9 @@ public class MainActivity extends MainActivityBase {
      */
     @Override
     protected void startDownloadForResult(ArrayList<Uri> urls) {
-        // TODO (A2): Start the Gallary Activity for result with the passed in Uri(s)
-        
+        // Start the Gallery Activity for result with the passed in Uris(s).
+        // TODO -- you fill in here.
+
     }
 
     /**
@@ -130,17 +133,20 @@ public class MainActivity extends MainActivityBase {
      * displays the first image in this list.
      */
     private void setupBroadcastReceiver() {
-        // TODO (A3): Create a new instance of the local broadcast receiver
+        // Create a new instance of the local broadcast receiver
         // class object (defined below).
-        
+        // TODO -- you fill in here.
 
-        // TODO (A3): Create a new broadcast intent filter that will
+
+        // Create a new broadcast intent filter that will
         // filter (receive) ACTION_VIEW intents.
-        
+        // TODO -- you fill in here.
 
-        // TODO (A3): Call the Activity class helper method to register
+
+        // Call the Activity class helper method to register
         // this local receiver instance.
-        
+        // TODO -- you fill in here.
+
     }
 
     /*
@@ -167,25 +173,35 @@ public class MainActivity extends MainActivityBase {
 
         // We are only interested in results returned by the
         // DownloadActivity.
-        
-            // TODO (A2): If the result code is RESULT_OK, then
+        // TODO -- you fill in here.
+
+
+            // If the result code is RESULT_OK, then
             // call a local helper method to extract and display the returned
             // list of image URLs. Otherwise, call the ViewUtils show toast
             // helper to display the string resource with id R.string
             // .download_activity_cancelled.
-           
+            // TODO -- you fill in here.
+
+
                 // Extract and display the downloaded images ...
-           
+                // TODO -- you fill in here.
+
+
                 // Show a toast ...
-           
+                // TODO -- you fill in here.
+
+
             // Return ...
-           
+            // TODO -- you fill in here.
+
             // DownloadActivity was not started with correct request code.
-            
-        
+            // TODO -- you fill in here.
+
 
         // Allow super class to handle results from unknown origins.
-        
+        // TODO -- you fill in here.
+
     }
 
     /**
@@ -196,15 +212,20 @@ public class MainActivity extends MainActivityBase {
      *               extra.
      */
     private void extractAndUpdateUrls(Intent intent) {
-        // TODO (A2): Extract the list of downloaded image URLs from the
+        // Extract the list of downloaded image URLs from the
         // passed intent.
-        
-        // TODO (A2): If the list is empty, call ViewUtils show toast helper
+        // TODO -- you fill in here.
+
+
+        // If the list is empty, call ViewUtils show toast helper
         // to display the string resource R.string.no_images_received.
-        
-        // TODO (A2): Always call the base class setItems() helper which
+        // TODO -- you fill in here.
+
+
+        // Always call the base class setItems() helper which
         // will refresh the layout to show the received list of URLs.
-        
+        // TODO -- you fill in here.
+
     }
 
 
@@ -236,9 +257,10 @@ public class MainActivity extends MainActivityBase {
         public void onReceive(Context context, Intent intent) {
             Log.d(TAG, "Broadcast receiver onReceive() called.");
 
-            // TODO (A3): call helper method to extract and display
+            // call helper method to extract and display
             // the received list of image URLs.
-            
+            // TODO -- you fill in here.
+
         }
     }
 }

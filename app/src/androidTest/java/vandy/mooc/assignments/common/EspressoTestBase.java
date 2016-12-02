@@ -397,10 +397,6 @@ public class EspressoTestBase {
     public static final class ActivityFinisher implements Runnable {
 
         public static void finishOpenActivities() {
-         //   TaskManager.clearAndReset();
-            // TODO: disabled because it is causing activities to be
-            // finished out of the main thread (I think...).
-            // new Handler(Looper.getMainLooper()).post(new ActivityFinisher());
         }
 
         private final ActivityLifecycleMonitor activityLifecycleMonitor;

@@ -5,12 +5,10 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
-import android.support.v4.content.AsyncTaskLoader;
 import android.support.v4.content.LocalBroadcastManager;
 import android.util.Log;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 
@@ -19,8 +17,6 @@ import vandy.mooc.assignments.assignment.downloader.AsyncTaskDownloader;
 import vandy.mooc.assignments.framework.application.activities.GalleryActivityBase;
 import vandy.mooc.assignments.framework.utils.UriUtils;
 import vandy.mooc.assignments.framework.utils.ViewUtils;
-
-import static android.app.Activity.RESULT_OK;
 
 /**
  * This activity class contains helper methods to support different was you can
@@ -42,6 +38,12 @@ import static android.app.Activity.RESULT_OK;
  * Assignment 3:
  * <p/>
  * In assignment 3, the MainActivity constructs a starting intent containing the
+ * displayed list of remote image URLs and then uses this intent to start this
+ * GalleryActivity "for results". This activity is the required to ...
+ * <p/>
+ * Assignment 4:
+ * <p/>
+ * In assignment 4, the MainActivity constructs a starting intent containing the
  * displayed list of remote image URLs and then uses this intent to start this
  * GalleryActivity "for results". This activity is the required to ...
  */
@@ -71,18 +73,20 @@ public class GalleryActivity
     public static Intent makeStartIntent(
             Context context,
             ArrayList<Uri> inputUrls) {
-        // TODO (A1,A2,A3): Create a new intent for starting this activity
+        // Create a new intent for starting this activity
         // using the passed context along with the class identifier
         // for this class.
-        
+        // TODO -- you fill in here.
 
-        // TODO (A1,A2,A3): Put the received list of input URLs as an intent
-        // use putParcelableArrayListExtra(String, ArrayList<Uri>) on the intent
-        // using the predefined INTENT_EXTRA_URLS extra name.
-        
 
-        // TODO (A1,A2,A3): Return the intent.
-        
+        // Put the received list of input URLs as an intent
+        // extra using the predefined INTENT_EXTRA_URLS extra name.
+        // TODO -- you fill in here.
+
+
+        // Return the intent.
+        // TODO -- you fill in here.
+
     }
 
     /*
@@ -104,11 +108,11 @@ public class GalleryActivity
         if (savedInstanceState == null) {
             // The activity is being started for the first time.
 
-            // TODO (A1+):
             // Call local help method to extract the URLs from the activity's
             // starting intent and pass these URLs into the super class using
             // the setItems() helper method.
-            
+            // TODO -- you fill in here.
+
         } else {
             // The activity is being recreated after configuration change.
             // You can restore your activity's saved state from the passed
@@ -118,9 +122,10 @@ public class GalleryActivity
             // onRestoreInstanceState() so you don't need to do anything here.
         }
 
-        // TODO(A2+): Call base class helper method to register your downloader
+        // Call base class helper method to register your downloader
         // implementation class.
-        
+        // TODO -- you fill in here.
+
     }
 
     /**
@@ -129,13 +134,15 @@ public class GalleryActivity
      *
      * @return A list of image URLs.
      */
+    @SuppressWarnings("unchecked")
     private List<Uri> extractInputUrlsFromIntent(Intent intent) {
-        // TODO (A1): First extract the list of input urls from the passed
+        // First extract the list of input urls from the passed
         // intent extras using the provided INTENT_EXTRA_URLS name string.
         // Next, validate the extracted list URL strings by calling the local
         // validateInput() helper method. If the entire list of received URLs
         // are valid, then return this list. Otherwise return null.
-     
+        // TODO -- you fill in here.
+
     }
 
     /**
@@ -147,7 +154,7 @@ public class GalleryActivity
      * first error encountered.
      */
     private boolean validateInput(ArrayList<Uri> inputUrls) {
-        // TODO (A1+): Validate the passed URL.
+        // Validate the passed URL.
         //
         // If the list is null call ViewUtils.showToast() to display the
         // string R.string.input_url_list_is_null.
@@ -156,14 +163,16 @@ public class GalleryActivity
         // to display the the string R.string.input_url_list_is_empty
         //
         // Otherwise check if each list entry is valid using the
-        // UriUtils.isValidUrl() helper and if any URL is not valid
+        // FileUtils.isValidUrl() helper and if any URL is not valid
         // return false.
         //
         // Return true if all the URLs are valid.
+        // TODO -- you fill in here.
 
-       
+
         // Input passed all tests, so return true.
-        
+        // TODO -- you fill in here.
+
     }
 
     /**
@@ -179,10 +188,11 @@ public class GalleryActivity
      */
     @SuppressWarnings("WeakerAccess")
     protected Intent makeResultIntent(ArrayList<Uri> outputUrls) {
-        // TODO (A2+): create a new data intent, put the received
+        // create a new data intent, put the received
         // outputUrls list into the intent as an ParcelableArrayListExtra,
         // and return the intent.
- 
+        // TODO -- you fill in here.
+
     }
 
     /**
@@ -195,17 +205,20 @@ public class GalleryActivity
             @NonNull ArrayList<Uri> urls) {
         Log.d(TAG, "Setting a result intent.");
 
-        // TODO (A2+): Call makeResultIntent to construct a return
+        // Call makeResultIntent to construct a return
         // intent that contains the list of currently displayed URLs
         // as an intent extra.
-        
+        // TODO -- you fill in here.
 
-        // TODO (A2+): Now set the result intent to return.
-        
 
-        // TODO (A2+): Call an Activity method to end this activity and return
+        // Now set the result intent to return.
+        // TODO -- you fill in here.
+
+
+        // Call an Activity method to end this activity and return
         // to parent activity.
-        
+        // TODO -- you fill in here.
+
 
         Log.d(TAG, "Activity finished.");
     }
@@ -222,21 +235,25 @@ public class GalleryActivity
      */
     @SuppressWarnings("WeakerAccess")
     private Intent makeBroadcastIntent(@NonNull ArrayList<Uri> urls) {
-        // TODO (A3): create a new data intent with the intent action to
+        // create a new data intent with the intent action to
         // ACTION_VIEW_LOCAL as expected by the MainActivity's
         // BroadcastReceiver implementation.
-        
+        // TODO -- you fill in here.
 
-        // TODO (A3) put the received outputUrls list into the intent as an
+
+        // put the received outputUrls list into the intent as an
         // ParcelableArrayListExtra.
-        
+        // TODO -- you fill in here.
 
-        // TODO (A3): Set the intent action to ACTION_VIEW_LOCAL as is
+
+        // Set the intent action to ACTION_VIEW_LOCAL as is
         // expected by the MainActivity's BroadcastReceiver implementation.
-        
+        // TODO -- you fill in here.
 
-        // TODO (A3): Return the intent.
-        
+
+        //  Return the intent.
+        // TODO -- you fill in here.
+
     }
 
     /**
@@ -249,18 +266,21 @@ public class GalleryActivity
             @NonNull ArrayList<Uri> outputUrls) {
         Log.d(TAG, "Sending a broadcast Intent.");
 
-        // TODO (A3): Call makeBroadcastIntent to construct an intent
+        // Call makeBroadcastIntent to construct an intent
         // that can be used to broadcast the downloaded image list to
         // a BroadcastReceiver (the MainActivity).
-        
+        // TODO -- you fill in here.
 
-        // TODO (A3): Call the Activity class helper method to
+
+        // Call the Activity class helper method to
         // send this intent in a local broadcast to the main activity.
-        
+        // TODO -- you fill in here.
 
-        // TODO (A3): Call an Activity method to end this activity and return
+
+        // Call an Activity method to end this activity and return
         // to parent activity.
-        
+        // TODO -- you fill in here.
+
 
         Log.d(TAG, "Activity finished.");
     }

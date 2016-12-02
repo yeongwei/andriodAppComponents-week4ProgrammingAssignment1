@@ -21,19 +21,25 @@ public class AsyncTaskDownloader extends ImageDownloader {
     /**
      * A reference to the background task to support the cancel hook.
      */
-    // TODO A3: Create a private AsyncTask called 'mTask'.
-   
+    // Create a private AsyncTask called 'mTask'.
+    // TODO -- you fill in here.
+
 
     /**
      * Starts the asynchronous download request.
      */
     @Override
     public void execute() {
-        // TODO A3: Initialize mTask.
-        // TODO A3: In the background: Call abstract class helper method to perform the download request and decode the resource.
-        // TODO A3: After downloading is complete: Call the super class setResource helper method to set the resource. // The helper will also display and error bitmap if the passed bitmap is null (signalling a failed download).
-        // TODO A3: run mTask.
-       
+        // Initialize mTask.
+
+        // In the background: Call abstract class helper method
+        // to perform the download request and decode the resource.
+
+        // After downloading is complete: Call the super class setResource
+        // helper method to set the resource. // The helper will also display
+        // and error bitmap if the passed bitmap is null (signalling a failed download).
+        // TODO -- you fill in here.
+
     }
 
     /**
@@ -43,8 +49,9 @@ public class AsyncTaskDownloader extends ImageDownloader {
     public void cancel() {
         // If the download thread is alive and running, cancel it by
         // invoking an interrupt.
-        // TODO A3: Return 'true' if mTask is currently running.
-       
+        // Return 'true' if mTask is currently running.
+        // TODO -- you fill in here.
+
     }
 
     /**
@@ -54,8 +61,9 @@ public class AsyncTaskDownloader extends ImageDownloader {
      */
     @Override
     public boolean isRunning() {
-        // TODO A3: Return 'true' if mTask is currently running.
-       
+        // Return 'true' if mTask is currently running.
+        // TODO -- you fill in here.
+
     }
 
     /**
@@ -65,8 +73,9 @@ public class AsyncTaskDownloader extends ImageDownloader {
      */
     @Override
     public boolean isCancelled() {
-        // TODO A3: Return 'true' if mTask has been cancelled.
-       
+        // Return 'true' if mTask has been cancelled.
+        // TODO -- you fill in here.
+
     }
 
     /**
@@ -77,7 +86,8 @@ public class AsyncTaskDownloader extends ImageDownloader {
      */
     @Override
     public boolean hasCompleted() {
-        // TODO A3: Return 'true' if mTask has finished running.
-        
+        // Return 'true' if mTask has finished running.
+        // TODO -- you fill in here.
+
     }
 }
