@@ -43,7 +43,7 @@ public class GalleryActivity
      */
 
     /**
-     * Factory method that creates and returns and implicit intent that can be
+     * Factory method that creates and returns an explicit intent that can be
      * used to start this activity.
      *
      * @param context   The context of the calling activity
