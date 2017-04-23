@@ -35,7 +35,7 @@ public class AsyncTaskDownloader extends ImageDownloader {
         // In the background: Call abstract class helper method
         // to perform the download request and decode the resource.
 
-        // After downloading is complete: Call the super class setResource
+        // After downloading is complete: Call the super class postResult(...)
         // helper method to set the resource. // The helper will also display
         // and error bitmap if the passed bitmap is null (signalling a failed download).
         // TODO -- you fill in here.
