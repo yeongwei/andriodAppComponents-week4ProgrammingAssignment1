@@ -150,7 +150,7 @@ public class AssignmentTests extends ApplicationTestBase {
      */
     private final static String[] defaultURLs = {
             "http://www.hireworks.tv/wp-content/gallery/bout_us/gameofthrones.jpg",
-            "http://colleges.usnews.rankingsandreviews.com/img/college-photo_313._445x280-zmm.jpg",
+            "https://www.usnews.com/img/college-photo_313_445x280-zmm.jpg",
             "https://upload.wikimedia.org/wikipedia/en/0/09/DataTNG.jpg",
             "http://www.dre.vanderbilt.edu/~schmidt/gifs/dougs-xsmall.jpg",
             "http://2.bp.blogspot.com/-c2U3HUQZVy8/UV7KI2bodLI/AAAAAAAAA4g/DJEEmv-FmNY/s1600" +
