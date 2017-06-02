@@ -1,8 +1,11 @@
 package vandy.mooc.assignments.assignment.downloader;
 
 import android.graphics.Bitmap;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.util.Log;
+
+import java.util.ArrayList;
 
 /**
  * A AsyncTask downloader implementation that uses an AsyncTask to download a
@@ -22,8 +25,7 @@ public class AsyncTaskDownloader extends ImageDownloader {
      * A reference to the background task to support the cancel hook.
      */
     // Create a private AsyncTask called 'mTask'.
-    // TODO -- you fill in here.
-
+    private AsyncTask<Void, Void, Bitmap> mTask;
 
     /**
      * Starts the asynchronous download request.
@@ -38,8 +40,18 @@ public class AsyncTaskDownloader extends ImageDownloader {
         // After downloading is complete: Call the super class postResult(...)
         // helper method to set the resource. // The helper will also display
         // and error bitmap if the passed bitmap is null (signalling a failed download).
-        // TODO -- you fill in here.
+        mTask = new AsyncTask<Void, Void,Bitmap>() {
+            @Override
+            protected Bitmap doInBackground(Void... params) {
+                return download();
+            }
+            @Override
+            protected void onPostExecute(Bitmap bitMap) {
+                postResult(bitMap);
+            }
+        };
 
+        mTask.execute(new Void[]{}); // Not too sure about this
     }
 
     /**
@@ -50,8 +62,8 @@ public class AsyncTaskDownloader extends ImageDownloader {
         // If the download thread is alive and running, cancel it by
         // invoking an interrupt.
         // Return 'true' if mTask is currently running.
-        // TODO -- you fill in here.
-
+        if (isRunning())
+            mTask.cancel(true);
     }
 
     /**
@@ -62,8 +74,10 @@ public class AsyncTaskDownloader extends ImageDownloader {
     @Override
     public boolean isRunning() {
         // Return 'true' if mTask is currently running.
-        // TODO -- you fill in here.
-
+        if (mTask.getStatus() == AsyncTask.Status.RUNNING)
+            return true;
+        else
+            return false;
     }
 
     /**
@@ -74,8 +88,7 @@ public class AsyncTaskDownloader extends ImageDownloader {
     @Override
     public boolean isCancelled() {
         // Return 'true' if mTask has been cancelled.
-        // TODO -- you fill in here.
-
+        return mTask.isCancelled();
     }
 
     /**
@@ -87,7 +100,9 @@ public class AsyncTaskDownloader extends ImageDownloader {
     @Override
     public boolean hasCompleted() {
         // Return 'true' if mTask has finished running.
-        // TODO -- you fill in here.
-
+        if (mTask.getStatus() == AsyncTask.Status.FINISHED)
+            return true;
+        else
+            return false;
     }
 }
